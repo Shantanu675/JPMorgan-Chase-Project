@@ -1,0 +1,64 @@
+#general:
+#  kafka-topic: my-kafka-topic-name
+#
+#spring:
+#  kafka:
+#    bootstrap-servers: ${spring.embedded.kafka.brokers:localhost:9092}  # Use embedded Kafka port
+#    consumer:
+#      group-id: midas-core-consumer
+#      auto-offset-reset: earliest
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+#      properties:
+#        spring.json.trusted.packages: "*"
+#        session.timeout.ms: 60000
+#        heartbeat.interval.ms: 10000
+#        max.poll.interval.ms: 300000
+#    producer:
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+#      properties:
+#        request.timeout.ms: 60000
+#        delivery.timeout.ms: 120000
+#    admin:
+#      properties:
+#        request.timeout.ms: 60000
+#        retry.backoff.ms: 1000
+#
+#  datasource:                        # ✅ move here
+#    url: jdbc:h2:mem:testdb
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password:
+#
+#  h2:
+#    console:
+#      enabled: true                  # ✅ enable the H2 web console
+#      path: /h2-console
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    database-platform: org.hibernate.dialect.H2Dialect
+
+
+spring:
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      group-id: midas
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+server:
+  port: 33400
+
+general:
+  kafka-topic: "transaction"
+  incentive-api-url: "http://localhost:8080/incentive"

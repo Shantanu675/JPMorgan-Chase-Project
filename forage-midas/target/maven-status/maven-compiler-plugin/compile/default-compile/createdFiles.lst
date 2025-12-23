@@ -1,0 +1,6 @@
+com/jpmc/midascore/MidasCoreApplication.class
+com/jpmc/midascore/component/DatabaseConduit.class
+com/jpmc/midascore/foundation/Balance.class
+com/jpmc/midascore/foundation/Transaction.class
+com/jpmc/midascore/entity/UserRecord.class
+com/jpmc/midascore/repository/UserRepository.class

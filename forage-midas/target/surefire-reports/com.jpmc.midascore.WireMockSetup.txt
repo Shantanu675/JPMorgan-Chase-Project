@@ -1,0 +1,37 @@
+-------------------------------------------------------------------------------
+Test set: com.jpmc.midascore.WireMockSetup
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.490 s <<< FAILURE! -- in com.jpmc.midascore.WireMockSetup
+com.jpmc.midascore.WireMockSetup.setupWireMock -- Time elapsed: 0.459 s <<< ERROR!
+java.lang.NoClassDefFoundError: org/eclipse/jetty/util/log/Log
+	at org.eclipse.jetty.http2.hpack.HpackEncoder.<clinit>(HpackEncoder.java:46)
+	at org.eclipse.jetty.http2.hpack.HpackFieldPreEncoder.getEncodedField(HpackFieldPreEncoder.java:49)
+	at org.eclipse.jetty.http.PreEncodedHttpField.<init>(PreEncodedHttpField.java:79)
+	at org.eclipse.jetty.http.PreEncodedHttpField.<init>(PreEncodedHttpField.java:85)
+	at org.eclipse.jetty.http.PreEncodedHttpField.<init>(PreEncodedHttpField.java:90)
+	at org.eclipse.jetty.http.MimeTypes$Type.<init>(MimeTypes.java:136)
+	at org.eclipse.jetty.http.MimeTypes$Type.<clinit>(MimeTypes.java:63)
+	at org.eclipse.jetty.http.MimeTypes.lambda$static$0(MimeTypes.java:215)
+	at org.eclipse.jetty.util.Index$Builder.withAll(Index.java:357)
+	at org.eclipse.jetty.http.MimeTypes.<clinit>(MimeTypes.java:211)
+	at org.eclipse.jetty.server.Server.<init>(Server.java:86)
+	at org.eclipse.jetty.server.Server.<init>(Server.java:139)
+	at com.github.tomakehurst.wiremock.jetty9.JettyHttpServer.createServer(JettyHttpServer.java:201)
+	at com.github.tomakehurst.wiremock.jetty9.JettyHttpServer.<init>(JettyHttpServer.java:79)
+	at com.github.tomakehurst.wiremock.jetty94.Jetty94HttpServer.<init>(Jetty94HttpServer.java:45)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at com.github.tomakehurst.wiremock.jetty9.JettyHttpServerFactory.buildHttpServer(JettyHttpServerFactory.java:73)
+	at com.github.tomakehurst.wiremock.WireMockServer.<init>(WireMockServer.java:75)
+	at com.github.tomakehurst.wiremock.WireMockServer.<init>(WireMockServer.java:117)
+	at com.jpmc.midascore.WireMockSetup.setupWireMock(WireMockSetup.java:10)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.jetty.util.log.Log
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	... 25 more
+
